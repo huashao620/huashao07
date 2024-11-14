@@ -1,0 +1,175 @@
+/* 设置整个页面的背景 */
+body {
+    background: linear-gradient(135deg, #f4f4f4, #e0e0e0);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    transition: background 0.5s ease;
+}
+
+/* 设置游戏画布的样式 */
+canvas {
+    background-color: #222;
+    border: 3px solid #555;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    border-radius: 8px; /* 圆角效果 */
+    animation: fadeIn 1s ease-in;
+}
+
+/* 游戏画布淡入效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* 设置按钮样式 */
+button {
+    background: linear-gradient(145deg, #0095DD, #007bb5);
+    color: white;
+    font-size: 18px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: inline-block;
+    z-index: 10;
+}
+
+/* 按钮鼠标悬停时的样式 */
+button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* 按钮点击时的样式 */
+button:active {
+    transform: translateY(2px);
+}
+
+/* 按钮禁用时的样式 */
+button:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* 游戏信息（分数、生命）显示 */
+#scoreAndLives {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 8px 16px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+/* 设置分数和生命文本样式 */
+#scoreAndLives span {
+    font-weight: bold;
+}
+
+/* 提示信息样式（游戏胜利/失败） */
+#gameMessage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 24px;
+    text-align: center;
+    display: none;
+}
+
+/* 提示信息的按钮 */
+#gameMessage button {
+    background: #0095DD;
+    color: white;
+    font-size: 18px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* 提示信息按钮悬停时的样式 */
+#gameMessage button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* 设置道具的样式 */
+#items {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+/* 游戏背景渐变动画 */
+@keyframes backgroundAnimation {
+    0% {
+        background: linear-gradient(135deg, #f4f4f4, #e0e0e0);
+    }
+    50% {
+        background: linear-gradient(135deg, #e0e0e0, #f4f4f4);
+    }
+    100% {
+        background: linear-gradient(135deg, #f4f4f4, #e0e0e0);
+    }
+}
+
+/* 添加页面渐变背景动画 */
+body {
+    animation: backgroundAnimation 10s infinite;
+}
+
+/* 增加屏幕尺寸适配 */
+@media (max-width: 768px) {
+    canvas {
+        width: 90%;
+        height: auto;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    #scoreAndLives {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    #scoreAndLives {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 18px;
+    }
+}
